@@ -31,10 +31,10 @@ A common config for debugging would look like this:
 WOODPECKER_OPEN=true
 WOODPECKER_ADMIN=your-username
 
-# if you want to test webhooks with an online SCM like Github this address needs to be accessible from public server
+# if you want to test webhooks with an online forge like Github this address needs to be accessible from public server
 WOODPECKER_HOST=http://your-dev-address.com/
 
-# github (sample for a SCM config - see /docs/administration/vcs/overview for other SCMs)
+# github (sample for a forge config - see /docs/administration/forge/overview for other forges)
 WOODPECKER_GITHUB=true
 WOODPECKER_GITHUB_CLIENT=<redacted>
 WOODPECKER_GITHUB_SECRET=<redacted>
@@ -59,11 +59,13 @@ WOODPECKER_HEALTHCHECK=false
 
 ### Setup O-Auth
 
-Create an O-Auth app for your SCM as describe in the [SCM documentation](/docs/administration/vcs/overview). If you set `WOODPECKER_DEV_OAUTH_HOST=http://localhost:8000` you can use that address with the path as explained for the specific SCM to login without the need for a public address. For example for Github you would use `http://localhost:8000/authorize` as authorization callback URL.
+Create an O-Auth app for your forge as describe in the [forges documentation](/docs/administration/forges/overview). If you set `WOODPECKER_DEV_OAUTH_HOST=http://localhost:8000` you can use that address with the path as explained for the specific forge to login without the need for a public address. For example for Github you would use `http://localhost:8000/authorize` as authorization callback URL.
 
 ## Developing with VS-Code
 
-You can use different methods for debugging the Woodpecker applications. One of the currently recommend ways to debug and test the Woodpecker application is using [VS-Code](https://code.visualstudio.com/) or [VS-Codium](https://vscodium.com/) (Open-Source binaries of VS-Code) as most maintainers are using it and Woodpecker already includes the needed debug configurations for it.
+You can use different methods for debugging the Woodpecker applications. One of the currently recommended ways to debug and test the Woodpecker application is using [VS-Code](https://code.visualstudio.com/) or [VS-Codium](https://vscodium.com/) (Open-Source binaries of VS-Code) as most maintainers are using it and Woodpecker already includes the needed debug configurations for it.
+
+To launch all needed services for local development you can use "Woodpecker CI" debugging configuration that will launch UI, server and agent in debugging mode. Then open `http://localhost:8000` to access it.
 
 As a starting guide for programming Go with VS-Code you can use this video guide:
 [![Getting started with Go in VS-Code](https://img.youtube.com/vi/1MXIGYrMk80/0.jpg)](https://www.youtube.com/watch?v=1MXIGYrMk80)
